@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechnoBolt - O ERP de Autopeças com IA</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        bolt: { 500: '#0ea5e9', 600: '#0284c7' }, // Azul Tech
+                        industrial: { 500: '#f59e0b', 600: '#d97706' }, // Laranja Ação
+                        dark: { bg: '#0f172a', surface: '#1e293b', card: '#334155' }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { background-color: #0f172a; color: #f8fafc; scroll-behavior: smooth; }
+        .hero-gradient {
+            background: radial-gradient(circle at top center, #1e293b 0%, #0f172a 70%);
+        }
+        .glass-card {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(148, 163, 184, 0.1);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <nav class="fixed w-full z-50 bg-dark-bg/90 backdrop-blur border-b border-slate-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex items-center gap-2">
+                    <div class="w-10 h-10 bg-bolt-500 rounded-lg flex items-center justify-center shadow-lg shadow-bolt-500/20">
+                        <span class="text-white font-bold text-xl">TB</span>
+                    </div>
+                    <span class="font-bold text-xl tracking-tight text-white">TechnoBolt</span>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#funcionalidades" class="hover:text-bolt-500 transition-colors">Funcionalidades</a>
+                        <a href="#vision" class="hover:text-bolt-500 transition-colors">Vision IA</a>
+                        <a href="#ecosistema" class="hover:text-bolt-500 transition-colors">Ecossistema</a>
+                    </div>
+                </div>
+                <div>
+                    <a href="#contato" class="bg-industrial-500 hover:bg-industrial-600 text-black font-bold py-2.5 px-6 rounded-lg transition-all shadow-lg shadow-industrial-500/20">
+                        Agendar Demo
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero-gradient pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+            <div class="text-center max-w-4xl mx-auto">
+                <div class="inline-flex items-center gap-2 bg-slate-800/50 border border-slate-700 rounded-full px-4 py-1.5 mb-8 animate-bounce">
+                    <span class="w-2 h-2 bg-green-500 rounded-full"></span>
+                    <span class="text-sm font-medium text-slate-300">Nova Versão: Multilojas & Vision IA</span>
+                </div>
+                
+                <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight mb-8 leading-tight">
+                    O Sistema Operacional da <br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-bolt-500 to-cyan-400">Autopeças do Futuro</span>
+                </h1>
+                
+                <p class="text-xl text-slate-400 mb-10 max-w-2xl mx-auto leading-relaxed">
+                    Deixe de ser apenas um "banco de dados de peças". O TechnoBolt usa <strong>Inteligência Artificial</strong> para identificar produtos por foto, cruzar códigos e gerenciar múltiplas lojas em tempo real.
+                </p>
+
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="#contato" class="bg-bolt-500 hover:bg-bolt-600 text-white text-lg font-bold py-4 px-10 rounded-xl transition-all shadow-xl shadow-bolt-500/30 flex items-center justify-center gap-2">
+                        Começar Agora <i data-lucide="arrow-right"></i>
+                    </a>
+                    <a href="#funcionalidades" class="bg-slate-800 hover:bg-slate-700 text-white text-lg font-medium py-4 px-10 rounded-xl border border-slate-700 transition-all flex items-center justify-center gap-2">
+                        <i data-lucide="play-circle"></i> Ver Vídeo
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="vision" class="py-24 bg-dark-bg border-y border-slate-800 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div>
+                    <div class="inline-block p-3 rounded-lg bg-bolt-500/10 text-bolt-500 mb-6">
+                        <i data-lucide="scan-eye" class="w-8 h-8"></i>
+                    </div>
+                    <h2 class="text-4xl font-bold mb-6">TechnoBolt Vision: <br>Sua Câmera é o Vendedor.</h2>
+                    <p class="text-lg text-slate-400 mb-8">
+                        Seu cliente trouxe uma peça suja de graxa e sem código? Sem problemas. Aponte a câmera e nossa IA identifica o nome, a aplicação e o estoque em segundos.
+                    </p>
+                    <ul class="space-y-4">
+                        <li class="flex items-center gap-3">
+                            <i data-lucide="check-circle-2" class="text-green-500"></i>
+                            <span class="text-slate-300">Identificação visual instantânea</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i data-lucide="check-circle-2" class="text-green-500"></i>
+                            <span class="text-slate-300">Sugestão de compatibilidade veicular</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i data-lucide="check-circle-2" class="text-green-500"></i>
+                            <span class="text-slate-300">Integração direta com o carrinho</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="relative">
+                    <div class="absolute -inset-4 bg-gradient-to-r from-bolt-500 to-purple-600 rounded-2xl blur-lg opacity-30"></div>
+                    <div class="glass-card rounded-2xl p-6 relative">
+                        <div class="flex items-center justify-between mb-4 border-b border-slate-700 pb-4">
+                            <span class="text-sm font-bold text-bolt-500">Vision IA Analysis</span>
+                            <span class="text-xs bg-green-500/20 text-green-400 px-2 py-1 rounded">98% Confiança</span>
+                        </div>
+                        <div class="bg-black/50 rounded-lg h-64 flex items-center justify-center mb-4 border border-dashed border-slate-600">
+                            <div class="text-center">
+                                <i data-lucide="image" class="mx-auto text-slate-600 mb-2"></i>
+                                <span class="text-xs text-slate-500">Imagem da Peça Capturada</span>
+                            </div>
+                        </div>
+                        <div class="bg-slate-800 p-4 rounded-lg">
+                            <h3 class="font-bold text-white">Pastilha de Freio - Bosch</h3>
+                            <p class="text-xs text-slate-400">Código: PD-4050 • VW Gol G5/G6</p>
+                            <button class="w-full mt-3 bg-bolt-500 text-white text-sm font-bold py-2 rounded flex items-center justify-center gap-2">
+                                <i data-lucide="shopping-cart" class="w-4 h-4"></i> Adicionar ao PDV
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="funcionalidades" class="py-24 bg-dark-bg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Um Ecossistema Completo</h2>
+                <p class="text-slate-400">Do balcão ao financeiro, cada módulo foi pensado para a realidade da autopeças.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <div class="glass-card p-8 rounded-2xl hover:border-bolt-500/50 transition-colors group">
+                    <div class="w-12 h-12 bg-slate-800 rounded-lg flex items-center justify-center mb-6 text-bolt-500 group-hover:bg-bolt-500 group-hover:text-white transition-colors">
+                        <i data-lucide="arrow-right-left"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Cross-Reference Master</h3>
+                    <p class="text-slate-400 text-sm">Não tem Bosch? O sistema sugere Delphi, Fras-le ou Cobreq na hora. Nunca perca venda por falta de marca.</p>
+                </div>
+
+                <div class="glass-card p-8 rounded-2xl hover:border-bolt-500/50 transition-colors group">
+                    <div class="w-12 h-12 bg-slate-800 rounded-lg flex items-center justify-center mb-6 text-bolt-500 group-hover:bg-bolt-500 group-hover:text-white transition-colors">
+                        <i data-lucide="store"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Gestão Multi-Lojas</h3>
+                    <p class="text-slate-400 text-sm">Controle Matriz e Filiais em uma única tela. Estoque compartilhado e transferência entre lojas facilitada.</p>
+                </div>
+
+                <div class="glass-card p-8 rounded-2xl hover:border-bolt-500/50 transition-colors group">
+                    <div class="w-12 h-12 bg-slate-800 rounded-lg flex items-center justify-center mb-6 text-bolt-500 group-hover:bg-bolt-500 group-hover:text-white transition-colors">
+                        <i data-lucide="file-text"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Revisor Fiscal Inteligente</h3>
+                    <p class="text-slate-400 text-sm">Auditoria automática de XMLs de entrada. O sistema valida NCM e tributos para evitar multas fiscais.</p>
+                </div>
+
+                <div class="glass-card p-8 rounded-2xl hover:border-bolt-500/50 transition-colors group">
+                    <div class="w-12 h-12 bg-slate-800 rounded-lg flex items-center justify-center mb-6 text-bolt-500 group-hover:bg-bolt-500 group-hover:text-white transition-colors">
+                        <i data-lucide="shopping-cart"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">PDV & Orçamentos</h3>
+                    <p class="text-slate-400 text-sm">Frente de caixa ultra-rápida. Transforme orçamentos em vendas com um clique e aceite múltiplos pagamentos.</p>
+                </div>
+
+                <div class="glass-card p-8 rounded-2xl hover:border-bolt-500/50 transition-colors group">
+                    <div class="w-12 h-12 bg-slate-800 rounded-lg flex items-center justify-center mb-6 text-bolt-500 group-hover:bg-bolt-500 group-hover:text-white transition-colors">
+                        <i data-lucide="box"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Auditor de Estoque</h3>
+                    <p class="text-slate-400 text-sm">Fim do balanço geral anual. O sistema sugere 20 itens por dia (Curva A) para contagem rápida e precisa.</p>
+                </div>
+
+                <div class="glass-card p-8 rounded-2xl hover:border-bolt-500/50 transition-colors group">
+                    <div class="w-12 h-12 bg-slate-800 rounded-lg flex items-center justify-center mb-6 text-bolt-500 group-hover:bg-bolt-500 group-hover:text-white transition-colors">
+                        <i data-lucide="shopping-bag"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Compras Inteligentes</h3>
+                    <p class="text-slate-400 text-sm">Reposição baseada em giro real (DDE). O sistema diz o que comprar, quanto e de qual fornecedor.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="contato" class="py-24 bg-gradient-to-b from-slate-900 to-black text-center">
+        <div class="max-w-4xl mx-auto px-4">
+            <h2 class="text-4xl md:text-5xl font-bold mb-6 text-white">Pronto para modernizar sua loja?</h2>
+            <p class="text-xl text-slate-400 mb-10">Junte-se às autopeças que estão usando IA para vender mais e errar menos.</p>
+            
+            <form class="max-w-md mx-auto space-y-4 text-left">
+                <div>
+                    <label class="block text-sm font-medium text-slate-400 mb-1">Seu Nome</label>
+                    <input type="text" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 text-white focus:border-bolt-500 focus:outline-none" placeholder="Ex: Carlos Silva">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-slate-400 mb-1">Email Corporativo</label>
+                    <input type="email" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 text-white focus:border-bolt-500 focus:outline-none" placeholder="carlos@suaautopecas.com">
+                </div>
+                <button type="submit" class="w-full bg-industrial-500 hover:bg-industrial-600 text-black font-bold py-4 rounded-lg text-lg transition-transform hover:scale-105 shadow-xl shadow-industrial-500/20">
+                    Solicitar Demonstração Gratuita
+                </button>
+            </form>
+            <p class="mt-4 text-sm text-slate-500">Sem cartão de crédito necessário. Teste grátis por 14 dias.</p>
+        </div>
+    </section>
+
+    <footer class="py-12 bg-black border-t border-slate-900 text-sm text-slate-500">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="flex items-center gap-2">
+                <div class="w-6 h-6 bg-slate-800 rounded flex items-center justify-center text-bolt-500 font-bold text-xs">TB</div>
+                <span>© 2026 TechnoBolt Systems</span>
+            </div>
+            <div class="flex gap-6">
+                <a href="#" class="hover:text-white transition-colors">Termos de Uso</a>
+                <a href="#" class="hover:text-white transition-colors">Privacidade</a>
+                <a href="#" class="hover:text-white transition-colors">Suporte</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
