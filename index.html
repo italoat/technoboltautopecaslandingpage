@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TechnoBolt - O ERP de Autopeças com IA</title>
+    <title>TechnoBolt Autopeças | O Futuro da Gestão</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     
     <script src="https://unpkg.com/lucide@latest"></script>
 
@@ -16,12 +16,24 @@
             theme: {
                 extend: {
                     colors: {
-                        bolt: { 500: '#0ea5e9', 600: '#0284c7' }, // Azul Tech
-                        industrial: { 500: '#f59e0b', 600: '#d97706' }, // Laranja Ação
-                        dark: { bg: '#0f172a', surface: '#1e293b', card: '#334155' }
+                        // Paleta TechnoBolt Legal (Premium Dark)
+                        brand: {
+                            500: '#3b82f6', // Azul Elétrico Principal
+                            600: '#2563eb',
+                            glow: '#60a5fa' // Azul Claro para Glows
+                        },
+                        dark: {
+                            bg: '#020617', // Slate 950 (Quase preto, muito elegante)
+                            card: '#0f172a', // Slate 900
+                            border: '#1e293b' // Slate 800
+                        }
                     },
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
                     }
                 }
             }
@@ -29,219 +41,278 @@
     </script>
 
     <style>
-        body { background-color: #0f172a; color: #f8fafc; scroll-behavior: smooth; }
-        .hero-gradient {
-            background: radial-gradient(circle at top center, #1e293b 0%, #0f172a 70%);
+        body { background-color: #020617; color: #f8fafc; }
+        
+        /* Efeitos de Glow Premium */
+        .glow-text {
+            text-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+        }
+        .hero-bg {
+            background: radial-gradient(circle at 50% 0%, #1e293b 0%, #020617 60%);
         }
         .glass-card {
-            background: rgba(30, 41, 59, 0.7);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(148, 163, 184, 0.1);
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(59, 130, 246, 0.1);
+            transition: all 0.3s ease;
+        }
+        .glass-card:hover {
+            border-color: rgba(59, 130, 246, 0.4);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px -10px rgba(59, 130, 246, 0.15);
+        }
+        
+        /* Step Connector Line */
+        .step-line {
+            position: absolute;
+            top: 2rem;
+            left: 50%;
+            width: 2px;
+            height: 100%;
+            background: #1e293b;
+            z-index: -1;
+            transform: translateX(-50%);
+        }
+        @media (min-width: 768px) {
+            .step-line {
+                top: 50%;
+                left: 0;
+                width: 100%;
+                height: 2px;
+                transform: translateY(-50%);
+            }
         }
     </style>
 </head>
-<body class="antialiased">
+<body class="antialiased selection:bg-brand-500 selection:text-white">
 
-    <nav class="fixed w-full z-50 bg-dark-bg/90 backdrop-blur border-b border-slate-700">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <nav class="fixed w-full z-50 bg-dark-bg/80 backdrop-blur-md border-b border-dark-border">
+        <div class="max-w-7xl mx-auto px-6">
             <div class="flex items-center justify-between h-20">
-                <div class="flex items-center gap-2">
-                    <div class="w-10 h-10 bg-bolt-500 rounded-lg flex items-center justify-center shadow-lg shadow-bolt-500/20">
-                        <span class="text-white font-bold text-xl">TB</span>
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 bg-brand-600 rounded flex items-center justify-center">
+                        <i data-lucide="zap" class="text-white w-5 h-5"></i>
                     </div>
-                    <span class="font-bold text-xl tracking-tight text-white">TechnoBolt</span>
+                    <span class="font-bold text-lg tracking-tight text-white">TechnoBolt <span class="text-slate-500 font-normal">Autopeças</span></span>
                 </div>
-                <div class="hidden md:block">
-                    <div class="ml-10 flex items-baseline space-x-8">
-                        <a href="#funcionalidades" class="hover:text-bolt-500 transition-colors">Funcionalidades</a>
-                        <a href="#vision" class="hover:text-bolt-500 transition-colors">Vision IA</a>
-                        <a href="#ecosistema" class="hover:text-bolt-500 transition-colors">Ecossistema</a>
-                    </div>
+                <div class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-400">
+                    <a href="#vision" class="hover:text-white transition-colors">Vision IA</a>
+                    <a href="#consultor" class="hover:text-white transition-colors">Consultor Técnico</a>
+                    <a href="#plataforma" class="hover:text-white transition-colors">Plataforma</a>
                 </div>
-                <div>
-                    <a href="#contato" class="bg-industrial-500 hover:bg-industrial-600 text-black font-bold py-2.5 px-6 rounded-lg transition-all shadow-lg shadow-industrial-500/20">
-                        Agendar Demo
-                    </a>
-                </div>
+                <a href="#demo" class="bg-white text-black hover:bg-slate-200 font-bold py-2 px-5 rounded text-sm transition-colors">
+                    Acesso Antecipado
+                </a>
             </div>
         </div>
     </nav>
 
-    <section class="hero-gradient pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-            <div class="text-center max-w-4xl mx-auto">
-                <div class="inline-flex items-center gap-2 bg-slate-800/50 border border-slate-700 rounded-full px-4 py-1.5 mb-8 animate-bounce">
-                    <span class="w-2 h-2 bg-green-500 rounded-full"></span>
-                    <span class="text-sm font-medium text-slate-300">Nova Versão: Multilojas & Vision IA</span>
-                </div>
-                
-                <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight mb-8 leading-tight">
-                    O Sistema Operacional da <br>
-                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-bolt-500 to-cyan-400">Autopeças do Futuro</span>
-                </h1>
-                
-                <p class="text-xl text-slate-400 mb-10 max-w-2xl mx-auto leading-relaxed">
-                    Deixe de ser apenas um "banco de dados de peças". O TechnoBolt usa <strong>Inteligência Artificial</strong> para identificar produtos por foto, cruzar códigos e gerenciar múltiplas lojas em tempo real.
-                </p>
+    <section class="hero-bg pt-32 pb-24 lg:pt-48 lg:pb-32 relative overflow-hidden">
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-brand-500/10 rounded-full blur-[100px] -z-10"></div>
 
-                <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <a href="#contato" class="bg-bolt-500 hover:bg-bolt-600 text-white text-lg font-bold py-4 px-10 rounded-xl transition-all shadow-xl shadow-bolt-500/30 flex items-center justify-center gap-2">
-                        Começar Agora <i data-lucide="arrow-right"></i>
-                    </a>
-                    <a href="#funcionalidades" class="bg-slate-800 hover:bg-slate-700 text-white text-lg font-medium py-4 px-10 rounded-xl border border-slate-700 transition-all flex items-center justify-center gap-2">
-                        <i data-lucide="play-circle"></i> Ver Vídeo
-                    </a>
+        <div class="max-w-5xl mx-auto px-6 text-center">
+            <div class="inline-flex items-center gap-2 bg-brand-500/10 border border-brand-500/20 text-brand-glow px-3 py-1 rounded-full text-xs font-semibold mb-8 uppercase tracking-widest">
+                <span class="relative flex h-2 w-2">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-500 opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-500"></span>
+                </span>
+                Nova IA Generativa 2.0
+            </div>
+            
+            <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight mb-6 leading-tight text-white">
+                Venda Peças com a <br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-brand-glow to-brand-500 glow-text">Velocidade da Luz</span>
+            </h1>
+            
+            <p class="text-xl text-slate-400 mb-10 max-w-2xl mx-auto leading-relaxed font-light">
+                O único ERP que identifica peças por foto, tira dúvidas técnicas do mecânico e audita suas notas fiscais em tempo real.
+            </p>
+
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <form class="flex w-full max-w-sm gap-2">
+                    <input type="email" placeholder="Digite seu e-mail corporativo" class="flex-1 bg-dark-card border border-dark-border rounded-lg px-4 py-3 text-white focus:border-brand-500 focus:outline-none focus:ring-1 focus:ring-brand-500 transition-all placeholder:text-slate-600">
+                    <button type="submit" class="bg-brand-600 hover:bg-brand-500 text-white font-bold py-3 px-6 rounded-lg transition-all shadow-lg shadow-brand-500/20 whitespace-nowrap">
+                        Testar Agora
+                    </button>
+                </form>
+            </div>
+            <p class="mt-4 text-xs text-slate-500">Junte-se a +500 lojas inovadoras. Sem cartão necessário.</p>
+        </div>
+    </section>
+
+    <section id="vision" class="py-24 bg-dark-bg border-y border-dark-border relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">TechnoBolt Vision</h2>
+                <p class="text-slate-400 max-w-2xl mx-auto">Esqueça o catálogo de papel. Sua câmera agora é um especialista em peças com 20 anos de experiência.</p>
+            </div>
+
+            <div class="relative grid md:grid-cols-3 gap-12 max-w-5xl mx-auto">
+                <div class="hidden md:block absolute top-12 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-brand-900 to-transparent -z-10"></div>
+
+                <div class="relative text-center group">
+                    <div class="w-24 h-24 mx-auto bg-dark-card border border-dark-border rounded-2xl flex items-center justify-center mb-6 shadow-xl group-hover:border-brand-500/50 transition-colors z-10 relative">
+                        <i data-lucide="camera" class="w-10 h-10 text-white"></i>
+                        <div class="absolute -bottom-3 bg-dark-bg px-2 text-xs font-mono text-slate-500 border border-dark-border rounded">STEP 01</div>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Captura Visual</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">O cliente chega com a peça na mão. Você aponta a câmera do celular ou webcam direto no sistema.</p>
+                </div>
+
+                <div class="relative text-center group">
+                    <div class="w-24 h-24 mx-auto bg-brand-500/10 border border-brand-500 rounded-2xl flex items-center justify-center mb-6 shadow-[0_0_30px_rgba(59,130,246,0.2)] z-10 relative">
+                        <i data-lucide="cpu" class="w-10 h-10 text-brand-500 animate-pulse-slow"></i>
+                        <div class="absolute -bottom-3 bg-dark-bg px-2 text-xs font-mono text-brand-500 border border-brand-500 rounded">STEP 02</div>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Análise Neural</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">Nossa IA compara a imagem com milhões de padrões, identificando marca, modelo e desgaste.</p>
+                </div>
+
+                <div class="relative text-center group">
+                    <div class="w-24 h-24 mx-auto bg-dark-card border border-dark-border rounded-2xl flex items-center justify-center mb-6 shadow-xl group-hover:border-green-500/50 transition-colors z-10 relative">
+                        <i data-lucide="shopping-cart" class="w-10 h-10 text-white"></i>
+                        <div class="absolute -bottom-3 bg-dark-bg px-2 text-xs font-mono text-slate-500 border border-dark-border rounded">STEP 03</div>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Venda Cruzada</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">O sistema localiza a peça no seu estoque (ou similar) e já adiciona ao carrinho de vendas.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="vision" class="py-24 bg-dark-bg border-y border-slate-800 relative">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="consultor" class="py-24 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6">
             <div class="grid lg:grid-cols-2 gap-16 items-center">
-                <div>
-                    <div class="inline-block p-3 rounded-lg bg-bolt-500/10 text-bolt-500 mb-6">
-                        <i data-lucide="scan-eye" class="w-8 h-8"></i>
-                    </div>
-                    <h2 class="text-4xl font-bold mb-6">TechnoBolt Vision: <br>Sua Câmera é o Vendedor.</h2>
-                    <p class="text-lg text-slate-400 mb-8">
-                        Seu cliente trouxe uma peça suja de graxa e sem código? Sem problemas. Aponte a câmera e nossa IA identifica o nome, a aplicação e o estoque em segundos.
-                    </p>
-                    <ul class="space-y-4">
-                        <li class="flex items-center gap-3">
-                            <i data-lucide="check-circle-2" class="text-green-500"></i>
-                            <span class="text-slate-300">Identificação visual instantânea</span>
-                        </li>
-                        <li class="flex items-center gap-3">
-                            <i data-lucide="check-circle-2" class="text-green-500"></i>
-                            <span class="text-slate-300">Sugestão de compatibilidade veicular</span>
-                        </li>
-                        <li class="flex items-center gap-3">
-                            <i data-lucide="check-circle-2" class="text-green-500"></i>
-                            <span class="text-slate-300">Integração direta com o carrinho</span>
-                        </li>
-                    </ul>
-                </div>
                 
-                <div class="relative">
-                    <div class="absolute -inset-4 bg-gradient-to-r from-bolt-500 to-purple-600 rounded-2xl blur-lg opacity-30"></div>
-                    <div class="glass-card rounded-2xl p-6 relative">
-                        <div class="flex items-center justify-between mb-4 border-b border-slate-700 pb-4">
-                            <span class="text-sm font-bold text-bolt-500">Vision IA Analysis</span>
-                            <span class="text-xs bg-green-500/20 text-green-400 px-2 py-1 rounded">98% Confiança</span>
-                        </div>
-                        <div class="bg-black/50 rounded-lg h-64 flex items-center justify-center mb-4 border border-dashed border-slate-600">
-                            <div class="text-center">
-                                <i data-lucide="image" class="mx-auto text-slate-600 mb-2"></i>
-                                <span class="text-xs text-slate-500">Imagem da Peça Capturada</span>
+                <div class="relative order-2 lg:order-1">
+                    <div class="absolute -inset-1 bg-gradient-to-r from-brand-500 to-purple-600 rounded-2xl blur opacity-20"></div>
+                    <div class="bg-dark-card border border-dark-border rounded-2xl p-6 relative">
+                        <div class="flex items-center gap-3 border-b border-dark-border pb-4 mb-4">
+                            <div class="w-8 h-8 rounded-full bg-brand-600 flex items-center justify-center">
+                                <i data-lucide="bot" class="w-5 h-5 text-white"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm font-bold text-white">Consultor IA</p>
+                                <p class="text-xs text-green-500 flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-green-500"></span> Online</p>
                             </div>
                         </div>
-                        <div class="bg-slate-800 p-4 rounded-lg">
-                            <h3 class="font-bold text-white">Pastilha de Freio - Bosch</h3>
-                            <p class="text-xs text-slate-400">Código: PD-4050 • VW Gol G5/G6</p>
-                            <button class="w-full mt-3 bg-bolt-500 text-white text-sm font-bold py-2 rounded flex items-center justify-center gap-2">
-                                <i data-lucide="shopping-cart" class="w-4 h-4"></i> Adicionar ao PDV
-                            </button>
+                        <div class="space-y-4 font-mono text-sm">
+                            <div class="flex justify-end">
+                                <div class="bg-brand-600/20 text-brand-glow p-3 rounded-lg rounded-tr-none max-w-[85%] border border-brand-600/30">
+                                    Qual o torque do cabeçote do Onix 1.0 2018?
+                                </div>
+                            </div>
+                            <div class="flex justify-start">
+                                <div class="bg-dark-bg p-3 rounded-lg rounded-tl-none max-w-[90%] border border-dark-border text-slate-300">
+                                    <p class="mb-2">Para o motor GM SPE/4 1.0 do Onix 2018, o aperto é em etapas:</p>
+                                    <ul class="list-disc pl-4 space-y-1 text-slate-400">
+                                        <li>1ª Etapa: 30 Nm</li>
+                                        <li>2ª Etapa: +90° graus</li>
+                                        <li>3ª Etapa: +90° graus</li>
+                                        <li>4ª Etapa: +90° graus</li>
+                                    </ul>
+                                    <p class="mt-2 text-xs text-brand-500 cursor-pointer hover:underline">[Ver Diagrama Técnico PDF]</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-4 pt-4 border-t border-dark-border relative">
+                            <input disabled type="text" placeholder="Digite sua dúvida técnica..." class="w-full bg-dark-bg border border-dark-border rounded p-3 text-xs text-slate-500 cursor-not-allowed">
+                            <i data-lucide="send" class="absolute right-3 top-7 w-4 h-4 text-slate-600"></i>
                         </div>
                     </div>
                 </div>
+
+                <div class="order-1 lg:order-2">
+                    <div class="inline-flex items-center gap-2 text-brand-500 font-mono text-xs mb-4">
+                        <i data-lucide="book-open" class="w-4 h-4"></i>
+                        BASE DE CONHECIMENTO TÉCNICO
+                    </div>
+                    <h2 class="text-4xl font-bold mb-6 text-white">Seu Mecânico tem dúvidas? <br> <span class="text-brand-500">Sua IA responde.</span></h2>
+                    <p class="text-lg text-slate-400 mb-8 leading-relaxed">
+                        Não perca tempo procurando manuais na internet. O Consultor Técnico do TechnoBolt é treinado com manuais de montadoras, diagramas elétricos e tabelas de fluidos.
+                    </p>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div class="flex gap-4">
+                            <div class="bg-dark-card p-2 rounded h-fit border border-dark-border"><i data-lucide="wrench" class="text-white w-5 h-5"></i></div>
+                            <div>
+                                <h4 class="font-bold text-white">Torques e Apertos</h4>
+                                <p class="text-sm text-slate-500">Especificações exatas de motor e suspensão.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="bg-dark-card p-2 rounded h-fit border border-dark-border"><i data-lucide="droplets" class="text-white w-5 h-5"></i></div>
+                            <div>
+                                <h4 class="font-bold text-white">Fluidos e Óleos</h4>
+                                <p class="text-sm text-slate-500">Viscosidade e capacidade do cárter.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="bg-dark-card p-2 rounded h-fit border border-dark-border"><i data-lucide="file-json" class="text-white w-5 h-5"></i></div>
+                            <div>
+                                <h4 class="font-bold text-white">Diagramas</h4>
+                                <p class="text-sm text-slate-500">Esquemas elétricos e de correias.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
 
-    <section id="funcionalidades" class="py-24 bg-dark-bg">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">Um Ecossistema Completo</h2>
-                <p class="text-slate-400">Do balcão ao financeiro, cada módulo foi pensado para a realidade da autopeças.</p>
-            </div>
-
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <section id="plataforma" class="py-24 bg-dark-bg border-t border-dark-border">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 
-                <div class="glass-card p-8 rounded-2xl hover:border-bolt-500/50 transition-colors group">
-                    <div class="w-12 h-12 bg-slate-800 rounded-lg flex items-center justify-center mb-6 text-bolt-500 group-hover:bg-bolt-500 group-hover:text-white transition-colors">
-                        <i data-lucide="arrow-right-left"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Cross-Reference Master</h3>
-                    <p class="text-slate-400 text-sm">Não tem Bosch? O sistema sugere Delphi, Fras-le ou Cobreq na hora. Nunca perca venda por falta de marca.</p>
+                <div class="glass-card p-8 rounded-2xl group">
+                    <i data-lucide="arrow-right-left" class="w-10 h-10 text-slate-400 group-hover:text-brand-500 transition-colors mb-4"></i>
+                    <h3 class="text-lg font-bold text-white mb-2">Cross-Reference Master</h3>
+                    <p class="text-sm text-slate-400">Conversão automática entre códigos originais e paralelos (Bosch, Delphi, Cofap).</p>
                 </div>
 
-                <div class="glass-card p-8 rounded-2xl hover:border-bolt-500/50 transition-colors group">
-                    <div class="w-12 h-12 bg-slate-800 rounded-lg flex items-center justify-center mb-6 text-bolt-500 group-hover:bg-bolt-500 group-hover:text-white transition-colors">
-                        <i data-lucide="store"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Gestão Multi-Lojas</h3>
-                    <p class="text-slate-400 text-sm">Controle Matriz e Filiais em uma única tela. Estoque compartilhado e transferência entre lojas facilitada.</p>
+                <div class="glass-card p-8 rounded-2xl group">
+                    <i data-lucide="store" class="w-10 h-10 text-slate-400 group-hover:text-brand-500 transition-colors mb-4"></i>
+                    <h3 class="text-lg font-bold text-white mb-2">Gestão Multi-Lojas</h3>
+                    <p class="text-sm text-slate-400">Controle estoques da Matriz e Filiais em uma tela. Transferências com um clique.</p>
                 </div>
 
-                <div class="glass-card p-8 rounded-2xl hover:border-bolt-500/50 transition-colors group">
-                    <div class="w-12 h-12 bg-slate-800 rounded-lg flex items-center justify-center mb-6 text-bolt-500 group-hover:bg-bolt-500 group-hover:text-white transition-colors">
-                        <i data-lucide="file-text"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Revisor Fiscal Inteligente</h3>
-                    <p class="text-slate-400 text-sm">Auditoria automática de XMLs de entrada. O sistema valida NCM e tributos para evitar multas fiscais.</p>
-                </div>
-
-                <div class="glass-card p-8 rounded-2xl hover:border-bolt-500/50 transition-colors group">
-                    <div class="w-12 h-12 bg-slate-800 rounded-lg flex items-center justify-center mb-6 text-bolt-500 group-hover:bg-bolt-500 group-hover:text-white transition-colors">
-                        <i data-lucide="shopping-cart"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">PDV & Orçamentos</h3>
-                    <p class="text-slate-400 text-sm">Frente de caixa ultra-rápida. Transforme orçamentos em vendas com um clique e aceite múltiplos pagamentos.</p>
-                </div>
-
-                <div class="glass-card p-8 rounded-2xl hover:border-bolt-500/50 transition-colors group">
-                    <div class="w-12 h-12 bg-slate-800 rounded-lg flex items-center justify-center mb-6 text-bolt-500 group-hover:bg-bolt-500 group-hover:text-white transition-colors">
-                        <i data-lucide="box"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Auditor de Estoque</h3>
-                    <p class="text-slate-400 text-sm">Fim do balanço geral anual. O sistema sugere 20 itens por dia (Curva A) para contagem rápida e precisa.</p>
-                </div>
-
-                <div class="glass-card p-8 rounded-2xl hover:border-bolt-500/50 transition-colors group">
-                    <div class="w-12 h-12 bg-slate-800 rounded-lg flex items-center justify-center mb-6 text-bolt-500 group-hover:bg-bolt-500 group-hover:text-white transition-colors">
-                        <i data-lucide="shopping-bag"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Compras Inteligentes</h3>
-                    <p class="text-slate-400 text-sm">Reposição baseada em giro real (DDE). O sistema diz o que comprar, quanto e de qual fornecedor.</p>
+                <div class="glass-card p-8 rounded-2xl group">
+                    <i data-lucide="shield-check" class="w-10 h-10 text-slate-400 group-hover:text-brand-500 transition-colors mb-4"></i>
+                    <h3 class="text-lg font-bold text-white mb-2">Auditoria Fiscal NCM</h3>
+                    <p class="text-sm text-slate-400">A IA verifica cada XML de entrada e alerta sobre erros tributários antes de você aceitar a nota.</p>
                 </div>
 
             </div>
         </div>
     </section>
 
-    <section id="contato" class="py-24 bg-gradient-to-b from-slate-900 to-black text-center">
-        <div class="max-w-4xl mx-auto px-4">
-            <h2 class="text-4xl md:text-5xl font-bold mb-6 text-white">Pronto para modernizar sua loja?</h2>
-            <p class="text-xl text-slate-400 mb-10">Junte-se às autopeças que estão usando IA para vender mais e errar menos.</p>
+    <section id="demo" class="py-24 relative overflow-hidden">
+        <div class="absolute inset-0 bg-brand-600/5"></div>
+        <div class="max-w-3xl mx-auto px-6 text-center relative z-10">
+            <h2 class="text-4xl font-bold mb-6 text-white">A Autopeças do Futuro Começa Hoje.</h2>
+            <p class="text-lg text-slate-400 mb-10">Solicite acesso à demo e veja como o Vision IA pode reduzir seu tempo de balcão em 70%.</p>
             
-            <form class="max-w-md mx-auto space-y-4 text-left">
-                <div>
-                    <label class="block text-sm font-medium text-slate-400 mb-1">Seu Nome</label>
-                    <input type="text" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 text-white focus:border-bolt-500 focus:outline-none" placeholder="Ex: Carlos Silva">
-                </div>
-                <div>
-                    <label class="block text-sm font-medium text-slate-400 mb-1">Email Corporativo</label>
-                    <input type="email" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 text-white focus:border-bolt-500 focus:outline-none" placeholder="carlos@suaautopecas.com">
-                </div>
-                <button type="submit" class="w-full bg-industrial-500 hover:bg-industrial-600 text-black font-bold py-4 rounded-lg text-lg transition-transform hover:scale-105 shadow-xl shadow-industrial-500/20">
-                    Solicitar Demonstração Gratuita
+            <form class="max-w-md mx-auto relative">
+                <input type="email" placeholder="Seu melhor e-mail corporativo" class="w-full bg-dark-card border border-dark-border rounded-xl px-6 py-4 text-white focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-500/50 transition-all shadow-2xl">
+                <button type="submit" class="absolute right-2 top-2 bottom-2 bg-brand-600 hover:bg-brand-500 text-white font-bold px-6 rounded-lg transition-colors">
+                    Solicitar Demo
                 </button>
             </form>
-            <p class="mt-4 text-sm text-slate-500">Sem cartão de crédito necessário. Teste grátis por 14 dias.</p>
+            <p class="mt-6 text-xs text-slate-500 font-mono">ENCRIPTADO PELA TECHNOBOLT SECURITY • DADOS PROTEGIDOS</p>
         </div>
     </section>
 
-    <footer class="py-12 bg-black border-t border-slate-900 text-sm text-slate-500">
-        <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4">
-            <div class="flex items-center gap-2">
-                <div class="w-6 h-6 bg-slate-800 rounded flex items-center justify-center text-bolt-500 font-bold text-xs">TB</div>
-                <span>© 2026 TechnoBolt Systems</span>
+    <footer class="py-12 bg-dark-bg border-t border-dark-border text-sm text-slate-600">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-2 opacity-80">
+                <div class="w-5 h-5 bg-slate-800 rounded flex items-center justify-center text-white font-bold text-[10px]">TB</div>
+                <span>© 2026 TechnoBolt Systems.</span>
             </div>
-            <div class="flex gap-6">
-                <a href="#" class="hover:text-white transition-colors">Termos de Uso</a>
-                <a href="#" class="hover:text-white transition-colors">Privacidade</a>
-                <a href="#" class="hover:text-white transition-colors">Suporte</a>
+            <div class="flex gap-8">
+                <a href="#" class="hover:text-white transition-colors">Legal</a>
+                <a href="#" class="hover:text-white transition-colors">SLA</a>
+                <a href="#" class="hover:text-white transition-colors">Status</a>
             </div>
         </div>
     </footer>
